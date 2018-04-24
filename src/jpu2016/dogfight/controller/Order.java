@@ -1,4 +1,4 @@
-package jpu.dogfight.controller;
+package jpu2016.dogfight.controller;
 
 public enum Order {
 	UP,
