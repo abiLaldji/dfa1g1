@@ -1,6 +1,6 @@
 package jpu2016.dogfight.model;
 
-public class Plane {
+public class Plane extends Mobile {
 	
 	private static int SPEED = 2;
 	private static int WIDTH = 100;
@@ -8,8 +8,8 @@ public class Plane {
 	
 	private int player;
 	
-	public Plane(int player, Direction direction, Position position, String image) {
-		
+	public Plane(int player, Direction direction, Position position, Dimension dimension, String image) {
+		super(direction, position, dimension, SPEED, image);
 	}
 	
 	public boolean isPlayer(int player) {
@@ -18,7 +18,7 @@ public class Plane {
 	}
 	
 	public boolean hit() {
-		return true;
+		return false;
 	}
 
 }

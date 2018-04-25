@@ -8,11 +8,19 @@ import java.awt.Point;
 public class Mobile {
 	
 	private int speed;
+	private String image;
+	private Dimension dimension;
+	private Position position;
+	private Direction direction;
 	
 	;
 	
 	public Mobile (Direction direction, Position position, Dimension dimension, int speed, String image) {
-		
+		this.direction = direction;
+		this.position = position;
+		this.dimension = dimension; 
+		this.speed = speed;
+		this.image = image;
 	}
 	
 	public Direction getDirection() {
@@ -32,15 +40,15 @@ public class Mobile {
 	}
 	
 	public int getSpeed() {
-		return 1;
+		return this.speed;
 	}
 	
 	public int getWidth() {
-		return 1;
+		return this.dimension.getWidth();
 	}
 	
 	public int getHeight() {
-		return 1;
+		return this.dimension.getHeight();
 	}
 	
 	public void move() {
@@ -56,19 +64,19 @@ public class Mobile {
 	}
 	
 	private void moveUp() {
-		
+		this.direction = Direction.UP;
 	}
 	
 	private void moveRight() {
-		
+		this.direction = Direction.RIGHT;
 	}
 	
 	private void moveDown() {
-		
+		this.direction = Direction.DOWN;
 	}
 	
 	private void moveLeft() {
-		
+		this.direction = Direction.LEFT;
 	}
 	
 	public Color getColor() {
@@ -84,7 +92,7 @@ public class Mobile {
 	}
 	
 	public boolean hit() {
-		return true;
+		return false;
 	}
 	
 	public boolean isWeapon() {
@@ -92,7 +100,7 @@ public class Mobile {
 	}
 	
 	public Image getImage() {
-		return Image;
+		return this.image;
 	}
 }
 

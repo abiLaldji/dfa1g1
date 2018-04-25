@@ -3,18 +3,20 @@ package jpu2016.dogfight.model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class DogfightModel {
+public class DogfightModel extends Observable {
+
+	private IArea area;
 
 	public DogfightModel() {
 		
 	}
 		
 	public IArea getArea() {
-		return new IArea;
+		return this.area;
 	}
 	
 	public void buildArea(Dimension dimension) {
-		
+		this.area = new Sky(dimension);
 	}
 	
 	public void addMobile(IMobile Mobile) {
@@ -30,7 +32,7 @@ public class DogfightModel {
 	}
 	
 	public IMobile getMobileByPlayer(int player) {
-		return new IMobile;
+		return null;
 	}
 	
 	public void setMobilesHaveMoved(){
