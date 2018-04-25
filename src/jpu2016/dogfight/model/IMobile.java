@@ -9,7 +9,7 @@ public interface IMobile {
 	public Point getPosition() ;
 	public Dimension getDimension() ;	
 	public int getWidth() ;
-	public int getWeight() ;
+	public int getHeight() ;
 	public int getSpeed() ;	
 	public Image getImage() ;		
 	public void move() ;
