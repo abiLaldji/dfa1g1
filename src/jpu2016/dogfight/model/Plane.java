@@ -13,7 +13,7 @@ public class Plane extends Mobile {
 	}
 	
 	public boolean isPlayer(int player) {
-		return true;
+		return false;
 		
 	}
 	

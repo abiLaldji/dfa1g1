@@ -3,7 +3,7 @@ package jpu2016.dogfight.model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class DogfightModel extends Observable {
+public class DogfightModel implements IDogfightModel {
 
 	private IArea area;
 

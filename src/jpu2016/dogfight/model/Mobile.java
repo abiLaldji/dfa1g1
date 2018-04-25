@@ -1,8 +1,10 @@
 package jpu2016.dogfight.model;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Point;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 
 public class Mobile {
@@ -24,19 +26,19 @@ public class Mobile {
 	}
 	
 	public Direction getDirection() {
-		return new Direction;
+		return this.direction;
 	}
 	
 	public void setDirection(Direction direction) {
-			
+			this.direction = direction;
 	}
 	
-	public Point getPosition() {
-		return new Point;
+	public Position getPosition() {
+		return this.position;
 	}
 	
 	public Dimension getDimension() {
-		return new Dimension(1,1);
+		return this.dimension;
 	}
 	
 	public int getSpeed() {
@@ -52,7 +54,23 @@ public class Mobile {
 	}
 	
 	public void move() {
-		
+		switch (this.direction) {
+		case UP :
+			this.position.setY(this.position.getY() - this.getSpeed());
+			break;
+			
+		case DOWN : 
+			this.position.setY(this.position.getY() + this.getSpeed());
+			break;
+			
+		case LEFT : 
+			this.position.setX(this.position.getX() - this.getSpeed());
+			break;
+			
+		case RIGHT : 
+			this.position.setX(this.position.getX() + this.getSpeed());
+			break;
+		}
 	}
 	
 	public void placeInArea(IArea area) {
@@ -60,34 +78,34 @@ public class Mobile {
 	}
 	
 	public boolean isPlayer(int player) {
-		return true;
+		return false;
 	}
 	
-	private void moveUp() {
+	protected void moveUp() {
 		this.direction = Direction.UP;
 	}
 	
-	private void moveRight() {
+	protected void moveRight() {
 		this.direction = Direction.RIGHT;
 	}
 	
-	private void moveDown() {
+	protected void moveDown() {
 		this.direction = Direction.DOWN;
 	}
 	
-	private void moveLeft() {
+	protected void moveLeft() {
 		this.direction = Direction.LEFT;
 	}
 	
 	public Color getColor() {
-		return new Color;
+		return null;
 	}
 	
-	public IDogfightModel getIDogfightModel() {
-		return new IDogfightModel;
+	public IDogfightModel getDogfightModel() {
+		return null;
 	}
 	
-	public void setIDogfightModel(IDogfightModel dogfightModel) {
+	public void setDogfightModel(IDogfightModel dogfightModel) {
 		
 	}
 	
@@ -96,11 +114,23 @@ public class Mobile {
 	}
 	
 	public boolean isWeapon() {
-		return true;
+		return false;
 	}
 	
 	public Image getImage() {
-		return this.image;
+		Image output = null;
+		
+		try {
+			
+			output = ImageIO.read(new File (this.image));
+		} 
+		
+		catch (IOException exception) {
+			
+			exception.printStackTrace();
+		}
+		
+		return output;
 	}
 }
 
